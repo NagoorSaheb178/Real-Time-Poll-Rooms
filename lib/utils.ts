@@ -14,7 +14,7 @@ export function generateFingerprint() {
     let uid = navigator_info.userAgent;
     uid += navigator_info.language;
     uid += screen_info.colorDepth;
-    uid += screen_info.width + 'item' + screen_info.height;
+    uid += screen_info.width + 'x' + screen_info.height;
     uid += new Date().getTimezoneOffset();
     uid += navigator_info.hardwareConcurrency;
 
