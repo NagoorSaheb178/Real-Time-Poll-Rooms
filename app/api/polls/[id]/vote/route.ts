@@ -16,7 +16,7 @@ export async function POST(
         );
     }
 
-    const forwarded = request.headers.get('input-forwarded-for');
+    const forwarded = request.headers.get('x-forwarded-for');
     const ip = forwarded ? forwarded.split(',')[0] : '127.0.0.1';
 
     try {
