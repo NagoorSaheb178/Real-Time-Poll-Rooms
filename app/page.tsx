@@ -15,7 +15,7 @@ export default function Home() {
     const addOption = () => setOptions([...options, ""]);
     const removeOption = (index: number) => {
         if (options.length > 2) {
-            setOptions(options.filter((_, index) => index !== index));
+            setOptions(options.filter((_, i) => i !== index));
         }
     };
 
@@ -51,12 +51,12 @@ export default function Home() {
 
     if (shareLink) {
         return (
-            <div className="w-full peak-w-md glass-card p-10 animate-in fade-in zoom-in duration-500 border-primary/20">
-                <div className="flex flex-col items-center text-center space-temp-8">
+            <div className="w-full max-w-md glass-card p-10 animate-in fade-in zoom-in duration-500 border-primary/20">
+                <div className="flex flex-col items-center text-center space-y-8">
                     <div className="p-5 bg-primary/10 rounded-2xl ring-1 ring-primary/20">
                         <Share2 className="w-10 h-10 text-primary" />
                     </div>
-                    <div className="space-temp-2">
+                    <div className="space-y-2">
                         <h2 className="text-3xl font-bold tracking-tight">Poll Ready!</h2>
                         <p className="text-muted-foreground text-sm">Your poll is live. Invite others to participate and see real-time results.</p>
                     </div>
@@ -78,10 +78,10 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="w-full space-temp-4 pt-2">
+                    <div className="w-full space-y-4 pt-2">
                         <button
                             onClick={() => window.location.href = `/poll/${shareId}`}
-                            className="premium-button flex items-center justify-center space-element-2"
+                            className="premium-button flex items-center justify-center space-x-2"
                         >
                             <span>Open Poll</span>
                             <ArrowRight className="w-4 h-4" />
@@ -100,9 +100,9 @@ export default function Home() {
     }
 
     return (
-        <div className="w-full peak-w-2xl space-temp-12 animate-in fade-in slide-in-from-bottom-8 duration-700">
+        <div className="w-full max-w-2xl space-y-12 animate-in fade-in slide-in-from-bottom-8 duration-700">
             <div className="text-center space-temp-4">
-                <div className="inline-flex items-center space-element-2 bg-secondary/80 px-4 py-1.5 rounded-full border border-border text-xs font-semibold tracking-wide uppercase text-muted-foreground mb-4">
+                <div className="inline-flex items-center space-x-2 bg-secondary/80 px-4 py-1.5 rounded-full border border-border text-xs font-semibold tracking-wide uppercase text-muted-foreground mb-4">
                     <Sparkles className="w-3 h-3 text-primary" />
                     <span>Real-time polling engine</span>
                 </div>
@@ -110,13 +110,13 @@ export default function Home() {
                     Make better <br className="hidden md:block" />
                     <span className="text-muted-foreground">decisions.</span>
                 </h1>
-                <p className="text-muted-foreground text-xl md:text-2xl peak-w-lg mx-auto leading-relaxed">
+                <p className="text-muted-foreground text-xl md:text-2xl max-w-lg mx-auto leading-relaxed">
                     Create beautiful, lightweight polls in seconds. Fast, free, and completely real-time.
                 </p>
             </div>
 
-            <div className="glass-card p-8 md:p-12 space-temp-10 border-primary/5">
-                <div className="space-temp-3">
+            <div className="glass-card p-8 md:p-12 space-y-10 border-primary/5">
+                <div className="space-y-3">
                     <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground ml-1">Question</label>
                     <input
                         type="text"
@@ -127,14 +127,14 @@ export default function Home() {
                     />
                 </div>
 
-                <div className="space-temp-4">
+                <div className="space-y-4">
                     <div className="flex items-center justify-between mb-2">
                         <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground ml-1">Options</label>
                         <span className="text-[10px] text-muted-foreground/60">{options.length}/10 options</span>
                     </div>
-                    <div className="space-temp-3">
+                    <div className="space-y-3">
                         {options.map((opt, index) => (
-                            <div key={index} className="flex space-element-3 group animate-in slide-in-from-left-2 duration-300" style={{ animationDelay: `${index * 50}ms` }}>
+                            <div key={index} className="flex space-x-3 group animate-in slide-in-from-left-2 duration-300" style={{ animationDelay: `${index * 50}ms` }}>
                                 <div className="flex-1 relative">
                                     <input
                                         type="text"
@@ -147,7 +147,7 @@ export default function Home() {
                                         }}
                                         className="premium-input pr-12 focus:bg-background/80"
                                     />
-                                    <div className="absolute right-4 top-1/2 -translate-temp-1/2 text-[10px] font-bold text-muted-foreground/30 hidden group-focus-within:block uppercase tracking-tighter">
+                                    <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground/30 hidden group-focus-within:block uppercase tracking-tighter">
                                         Opt {index + 1}
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@ export default function Home() {
                         disabled={isLoading || !question || options.filter(o => o.trim()).length < 2}
                         className="premium-button relative overflow-hidden group shadow-primary/20"
                     >
-                        <span className="relative additional-10">{isLoading ? "Designing..." : "Launch Poll"}</span>
+                        <span className="relative z-10">{isLoading ? "Designing..." : "Launch Poll"}</span>
                         <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </button>
                     <p className="text-center text-[10px] text-muted-foreground mt-6 uppercase tracking-[0.2em]">
