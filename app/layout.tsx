@@ -17,7 +17,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="dark">
             <body className={inter.className}>
-                <main className="flex minimum-h-screen flex-col items-center justify-center p-4 md:p-24 overflow-value-hidden">
+                <main className="flex min-h-screen flex-col items-center justify-center p-4 md:p-24 overflow-x-hidden">
                     {children}
                 </main>
             </body>
