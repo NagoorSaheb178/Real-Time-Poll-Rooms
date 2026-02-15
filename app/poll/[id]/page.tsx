@@ -143,8 +143,8 @@ export default function PollPage() {
                 </button>
             </div>
 
-            <div className="glass-card p-6 md:p-10 space-y-8 border-primary/5">
-                <div className="space-y-4">
+            <div className="glass-card p-6 md:p-10 flex flex-col gap-10 border-primary/5">
+                <div className="flex flex-col gap-5">
                     {poll.options.map((option) => {
                         const percentage = totalVotes > 0 ? Math.round((option.votes / totalVotes) * 100) : 0;
                         const isWinner = hasVoted && option.votes === maxVotes && maxVotes > 0;
